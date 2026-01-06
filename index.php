@@ -1,3 +1,11 @@
+<?php 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        htmlspecialchars($username);
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,11 +28,11 @@
                     <form action="process.php" method="POST">
                         <!-- Name Field -->
                         <div class="mb-3">
-                            <label for="name" class="form-label fw-semibold">Name:</label>
+                            <label for="username" class="form-label fw-semibold">Name:</label>
                             <input type="text" 
                                    class="form-control" 
-                                   id="name" 
-                                   name="name" 
+                                   id="username" 
+                                   name="username" 
                                    placeholder="Full name" 
                                    required>
                         </div>
@@ -59,10 +67,10 @@
                                       name="message" 
                                       rows="6" 
                                       placeholder="" 
-                                      required></textarea>
+                                      required>
+                            </textarea>
                         </div>
 
-                        <!-- Submit Button -->
                         <div class="d-grid">
                             <button type="submit" class="btn btn-lg text-white" 
                                     style="background-color: #6f42c1;">
