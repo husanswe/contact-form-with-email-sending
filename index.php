@@ -10,6 +10,13 @@
         $subject = htmlspecialchars($subject, ENT_QUOTES, 'UTF-8');
         $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
     }
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "$email is a valid email address.";
+    } else {
+        echo "$email isn't a valid email address.";
+    } 
+    
 ?>
 
 <!doctype html>
@@ -29,9 +36,9 @@
 
                 <!-- Form Card -->
                 <div class="bg-white rounded shadow-sm p-4 p-md-5">
-                    <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
+                    <h2 class="text-center mb-4 fw-bold">Contact Form</h2>
 
-                    <form action="process.php" method="POST">
+                    <form action="MAILTO:khusansulaymonov@yandex.com" method="POST" enctype="text/plain">
                         <!-- Name Field -->
                         <div class="mb-3">
                             <label for="username" class="form-label fw-semibold">Name:</label>
@@ -79,7 +86,7 @@
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-lg text-white" 
-                                    style="background-color: #6f42c1;">
+                                    style="background-color: navy;">
                                 Send Message
                             </button>
                         </div>
