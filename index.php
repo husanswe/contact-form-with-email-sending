@@ -32,7 +32,7 @@
                 $success = 'Thank you! Your message has been sent.';
                 $username = $email = $subject =$message = '';
             } else {
-                $erorr = 'Sorry, something went wrong. Email not sent.';
+                $error = 'Sorry, something went wrong. Email not sent.';
             }
         }
     }
@@ -61,7 +61,11 @@
 
                     <?php if ($success): ?>
                         <div class="alert alert-success"><?php echo $success; ?></div>
-                    <?php else: ?>
+                    <?php endif; ?>
+                    <?php if ($error): ?>
+                        <div class="alert alert-danger"> <?= $error; ?> </div>
+                    <?php endif; ?>
+
                     <form action="" method="POST">
                         <!-- Name Field -->
                         <div class="mb-3">
@@ -115,7 +119,6 @@
                             </button>
                         </div>
                     </form>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>
